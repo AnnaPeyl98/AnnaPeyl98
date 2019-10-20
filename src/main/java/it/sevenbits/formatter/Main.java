@@ -1,26 +1,32 @@
-package it.sevenbits;
+package it.sevenbits.formatter;
 
-import it.sevenbits.reader.ReaderException;
-import it.sevenbits.reader.implementation.StringReader;
-import it.sevenbits.formatter.Formatter;
-import it.sevenbits.writer.implementation.StringWriter;
-import it.sevenbits.writer.WriterException;
+import it.sevenbits.formatter.formatter.Formatter;
+import it.sevenbits.formatter.reader.implementation.StringReader;
+import it.sevenbits.formatter.writer.implementation.StringWriter;
+import it.sevenbits.formatter.reader.ReaderException;
+import it.sevenbits.formatter.writer.WriterException;
 
 /**
  * Main class for running formatter
  */
-public class Main {
+public final class Main {
+    /**
+     * That could not call the constructor without parameters
+     */
+    private Main() {
+    }
+
     /**
      * Method that run formatter
      *
      * @param args args console arguments
      */
-    public static void main(final String[] args) {
+   public static void main(final String[] args) {
         try {
             StringReader testTwo = new StringReader("public class HelloWorld{public static void main(String[] args){"
                     + "System.out.println(\"Hello, World from branch2\");" + "}}");
-            StringReader testThree = new StringReader("{{{}");
-            StringReader testFour = new StringReader("{{{           {}}}}");
+            StringReader testThree = new StringReader("{r;          t;}");
+            StringReader testFour = new StringReader("{{{{}}}");
 
             StringWriter stringWriterForTestTwo = new StringWriter();
             StringWriter stringWriterForTestThree = new StringWriter();
@@ -28,7 +34,7 @@ public class Main {
 
             Formatter bf = new Formatter();
 
-            System.out.println("String two after Formatter:");
+           System.out.println("String two after Formatter:");
             bf.format(testTwo, stringWriterForTestTwo);
             System.out.println(stringWriterForTestTwo.toString());
 
