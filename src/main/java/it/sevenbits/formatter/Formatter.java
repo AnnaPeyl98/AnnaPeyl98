@@ -1,7 +1,7 @@
-package formatter;
+package it.sevenbits.formatter;
 
-import reader.StringReader;
-import writer.StringWriter;
+import it.sevenbits.reader.StringReader;
+import it.sevenbits.writer.StringWriter;
 
 public class Formatter {
     private final int INDENT_LENGTH = 4;

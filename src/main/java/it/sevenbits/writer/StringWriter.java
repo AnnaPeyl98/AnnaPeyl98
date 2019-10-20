@@ -1,4 +1,4 @@
-package writer;
+package it.sevenbits.writer;
 
 public class StringWriter{
     private StringBuilder stringBuilder;

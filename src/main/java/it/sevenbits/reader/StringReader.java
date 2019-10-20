@@ -1,4 +1,4 @@
-package reader;
+package it.sevenbits.reader;
 
 public class StringReader {
     private String string;
