@@ -1,6 +1,6 @@
-package it.sevenbits.writer.implementation;
+package it.sevenbits.formatter.writer.implementation;
 
-import it.sevenbits.writer.IWriter;
+import it.sevenbits.formatter.writer.IWriter;
 
 /**
  * Class for writing formatted strings

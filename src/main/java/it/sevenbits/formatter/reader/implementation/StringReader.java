@@ -1,7 +1,7 @@
-package it.sevenbits.reader.implementation;
+package it.sevenbits.formatter.reader.implementation;
 
-import it.sevenbits.reader.IReader;
-import it.sevenbits.reader.ReaderException;
+import it.sevenbits.formatter.reader.IReader;
+import it.sevenbits.formatter.reader.ReaderException;
 
 /**
  * Class for reading unformatted strings
