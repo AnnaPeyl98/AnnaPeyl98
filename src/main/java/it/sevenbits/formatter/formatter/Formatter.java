@@ -1,26 +1,27 @@
-package it.sevenbits.formatter;
+package it.sevenbits.formatter.formatter;
 
-import it.sevenbits.reader.IReader;
-import it.sevenbits.reader.ReaderException;
-import it.sevenbits.writer.IWriter;
-import it.sevenbits.writer.WriterException;
+import it.sevenbits.formatter.reader.IReader;
+import it.sevenbits.formatter.reader.ReaderException;
+import it.sevenbits.formatter.writer.IWriter;
+import it.sevenbits.formatter.writer.WriterException;
 
 
 /**
  * Class that formats code by code style rules
  */
 public class Formatter {
-    private final int INDENT_LENGTH = 4;
-    private final char LEFT_BRACE = '{';
-    private final char RIGHT_BRACE = '}';
-    private final char SEMICOLON = ';';
-    private final char SPACE = ' ';
-    private final char CHAR_NEWLINE = '\n';
+    private static final int INDENT_LENGTH = 4;
+    private static final char LEFT_BRACE = '{';
+    private static final char RIGHT_BRACE = '}';
+    private static final char SEMICOLON = ';';
+    private static final char SPACE = ' ';
+    private static final char CHAR_NEWLINE = '\n';
 
     private int nestingLevel = 0;
 
     /**
      * Translates to a new line and makes four spaces according to the nesting level
+     *
      * @param writer - instance of IWriter
      * @throws WriterException if was trouble with recording
      */
@@ -35,7 +36,6 @@ public class Formatter {
     }
 
     /**
-     *
      * @param reader - instance that contains code for formatting
      * @param writer - instance where we would write formatting code
      * @throws ReaderException if was trouble with read
@@ -44,16 +44,23 @@ public class Formatter {
     public void format(final IReader reader, final IWriter writer) throws ReaderException, WriterException {
         boolean previousIterationResultForNewLine = true;
         boolean iterationResultForNewLine = false;
+        boolean beforeSemicolon = false;
         char symbol = 0;
         boolean needNewLine = false;
         nestingLevel = 0;
         while (reader.hasNext()) {
             symbol = reader.read();
-            while (symbol == SPACE) {
-                symbol = reader.read();
+            if (previousIterationResultForNewLine && symbol == SPACE) {
+                while (symbol == SPACE) {
+                    symbol = reader.read();
+                }
             }
 
             if (symbol == LEFT_BRACE) {
+                if (beforeSemicolon) {
+                    makeNewLine(writer);
+                    beforeSemicolon = false;
+                }
                 nestingLevel++;
                 writer.write(LEFT_BRACE);
                 makeNewLine(writer);
@@ -63,6 +70,7 @@ public class Formatter {
                 writer.write(SEMICOLON);
                 iterationResultForNewLine = true;
                 needNewLine = true;
+                beforeSemicolon = true;
 
             }
             if (symbol == RIGHT_BRACE) {
@@ -78,6 +86,7 @@ public class Formatter {
                     needNewLine = false;
                 }
                 writer.write(symbol);
+                beforeSemicolon = false;
             }
             previousIterationResultForNewLine = iterationResultForNewLine;
             iterationResultForNewLine = false;
