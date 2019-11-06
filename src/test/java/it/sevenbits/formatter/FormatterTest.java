@@ -1,5 +1,6 @@
 package it.sevenbits.formatter.formatter;
 
+import it.sevenbits.formatter.formatter.implementation.Formatter;
 import it.sevenbits.formatter.reader.ReaderException;
 import it.sevenbits.formatter.reader.implementation.StringReader;
 import it.sevenbits.formatter.writer.WriterException;
@@ -21,7 +22,7 @@ public class FormatterTest {
     }
 
     @Test
-    public void testOnlyBraces() throws ReaderException, WriterException {
+    public void testOnlyBraces() throws ReaderException, FormatterException {
         String result = "{\n" +
                 "    {\n" +
                 "        {\n" +
@@ -37,7 +38,7 @@ public class FormatterTest {
     }
 
     @Test
-    public void testWithUnpairedBraces() throws ReaderException, WriterException {
+    public void testWithUnpairedBraces() throws ReaderException, FormatterException {
         String result = "{\n" +
                 "    {\n" +
                 "        {\n" +
@@ -52,7 +53,7 @@ public class FormatterTest {
     }
 
     @Test
-    public void testHelloWord() throws ReaderException, WriterException {
+    public void testHelloWord() throws ReaderException, FormatterException {
         String result = "public class HelloWorld{\n" +
                 "    public static void main(String[] args){\n" +
                 "        System.out.println(\"Hello, World from branch2\");\n" +
@@ -65,7 +66,7 @@ public class FormatterTest {
     }
 
     @Test
-    public void testWithExtraSpaces() throws ReaderException, WriterException {
+    public void testWithExtraSpaces() throws ReaderException, FormatterException {
         String result = "{\n" +
                 "    r;\n" +
                 "    t;\n" +
@@ -76,7 +77,7 @@ public class FormatterTest {
     }
 
     @Test
-    public void testWithoutSpaces() throws ReaderException, WriterException {
+    public void testWithoutSpaces() throws ReaderException, FormatterException {
         String result = "{\n" +
                 "    r;\n" +
                 "    t;\n" +

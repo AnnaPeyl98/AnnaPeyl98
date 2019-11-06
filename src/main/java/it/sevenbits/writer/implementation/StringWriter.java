@@ -24,6 +24,11 @@ public class StringWriter implements IWriter {
         stringBuilder.append(c);
     }
 
+    @Override
+    public void close() {
+
+    }
+
     /**
      * Return string value of stream
      *

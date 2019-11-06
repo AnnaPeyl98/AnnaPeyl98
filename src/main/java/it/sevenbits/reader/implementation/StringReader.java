@@ -51,4 +51,9 @@ public class StringReader implements IReader {
         }
         throw new ReaderException("Stream is empty");
     }
+
+    @Override
+    public void close() {
+
+    }
 }
