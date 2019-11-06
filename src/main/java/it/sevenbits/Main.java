@@ -1,14 +1,14 @@
-package it.sevenbits.formatter;
+package it.sevenbits;
 
-import it.sevenbits.formatter.formatter.FormatterException;
-import it.sevenbits.formatter.formatter.IFormatter;
-import it.sevenbits.formatter.formatter.implementation.LexerFormatter;
-import it.sevenbits.formatter.reader.IReader;
-import it.sevenbits.formatter.reader.implementation.FileReader;
-import it.sevenbits.formatter.writer.IWriter;
-import it.sevenbits.formatter.writer.implementation.FileWriter;
-import it.sevenbits.formatter.reader.ReaderException;
-import it.sevenbits.formatter.writer.WriterException;
+import it.sevenbits.formatter.FormatterException;
+import it.sevenbits.formatter.IFormatter;
+import it.sevenbits.formatter.implementation.LexerFormatter;
+import it.sevenbits.reader.IReader;
+import it.sevenbits.reader.implementation.FileReader;
+import it.sevenbits.writer.IWriter;
+import it.sevenbits.writer.implementation.FileWriter;
+import it.sevenbits.reader.ReaderException;
+import it.sevenbits.writer.WriterException;
 
 /**
  * Main class for running formatter
@@ -25,7 +25,7 @@ public final class Main {
      *
      * @param args args console arguments
      */
-   public static void main(final String[] args) throws FormatterException {
+    public static void main(final String[] args) {
         try {
             IReader testTwo = new FileReader(args[0]);
 
@@ -34,16 +34,16 @@ public final class Main {
             IFormatter bf = new LexerFormatter();
 
 
-           System.out.println("String two after Formatter:");
+            System.out.println("Formatter formatted code. Check file out.txt.");
             bf.format(testTwo, stringWriterForTestTwo);
-            System.out.println(stringWriterForTestTwo.toString());
-
 
 
         } catch (ReaderException e) {
             e.printStackTrace();
         } catch (WriterException e) {
             e.printStackTrace();
+        } catch (FormatterException e) {
+            e.printStackTrace();
         }
-   }
+    }
 }
