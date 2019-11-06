@@ -1,4 +1,4 @@
-package it.sevenbits.formatter.writer;
+package it.sevenbits.writer;
 
 /**
  * Class for IWriter that create exception if it was some problems with writing

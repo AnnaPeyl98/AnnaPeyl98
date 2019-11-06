@@ -1,6 +1,6 @@
-package it.sevenbits.formatter.reader;
+package it.sevenbits.reader;
 
-import it.sevenbits.formatter.reader.implementation.StringReader;
+import it.sevenbits.reader.implementation.StringReader;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package it.sevenbits.formatter.reader;
+package it.sevenbits.reader;
 
 /**
  * Class for IReader that create exception if it was some problems with reading

@@ -1,6 +1,6 @@
-package it.sevenbits.formatter.writer;
+package it.sevenbits.writer;
 
-import it.sevenbits.formatter.writer.implementation.StringWriter;
+import it.sevenbits.writer.implementation.StringWriter;
 import org.junit.Before;
 import org.junit.Test;
 

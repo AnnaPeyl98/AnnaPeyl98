@@ -1,10 +1,9 @@
-package it.sevenbits.formatter.formatter;
+package it.sevenbits.formatter;
 
-import it.sevenbits.formatter.formatter.implementation.Formatter;
-import it.sevenbits.formatter.reader.ReaderException;
-import it.sevenbits.formatter.reader.implementation.StringReader;
-import it.sevenbits.formatter.writer.WriterException;
-import it.sevenbits.formatter.writer.implementation.StringWriter;
+import it.sevenbits.formatter.implementation.Formatter;
+import it.sevenbits.reader.ReaderException;
+import it.sevenbits.reader.implementation.StringReader;
+import it.sevenbits.writer.implementation.StringWriter;
 import org.junit.Before;
 import org.junit.Test;
 
