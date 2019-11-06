@@ -1,11 +1,11 @@
-package it.sevenbits.formatter.formatter.implementation;
+package it.sevenbits.formatter.implementation;
 
-import it.sevenbits.formatter.formatter.FormatterException;
-import it.sevenbits.formatter.formatter.IFormatter;
-import it.sevenbits.formatter.reader.IReader;
-import it.sevenbits.formatter.reader.ReaderException;
-import it.sevenbits.formatter.writer.IWriter;
-import it.sevenbits.formatter.writer.WriterException;
+import it.sevenbits.formatter.IFormatter;
+import it.sevenbits.formatter.FormatterException;
+import it.sevenbits.reader.IReader;
+import it.sevenbits.reader.ReaderException;
+import it.sevenbits.writer.IWriter;
+import it.sevenbits.writer.WriterException;
 
 
 /**
@@ -38,10 +38,10 @@ public class Formatter implements IFormatter {
     }
 
     /**
+     * Formats java code according to the rules
      * @param reader - instance that contains code for formatting
      * @param writer - instance where we would write formatting code
-     * @throws ReaderException if was trouble with read
-     * @throws WriterException if was trouble with recording
+     * @throws FormatterException if was trouble with reading or writing
      */
     public void format(final IReader reader, final IWriter writer) throws FormatterException {
         boolean previousIterationResultForNewLine = true;
@@ -85,6 +85,7 @@ public class Formatter implements IFormatter {
                         iterationResultForNewLine = true;
                         needNewLine = true;
                         break;
+                    default:
                 }
                 if (!iterationResultForNewLine) {
                     if (previousIterationResultForNewLine && needNewLine) {
