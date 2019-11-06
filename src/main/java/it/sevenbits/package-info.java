@@ -1,4 +1,4 @@
 /**
  *Package for project "Formatter"
  */
-package it.sevenbits.formatter;
+package it.sevenbits;
