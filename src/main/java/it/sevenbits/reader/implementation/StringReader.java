@@ -1,7 +1,7 @@
-package it.sevenbits.formatter.reader.implementation;
+package it.sevenbits.reader.implementation;
 
-import it.sevenbits.formatter.reader.IReader;
-import it.sevenbits.formatter.reader.ReaderException;
+import it.sevenbits.reader.IReader;
+import it.sevenbits.reader.ReaderException;
 
 /**
  * Class for reading unformatted strings
@@ -52,6 +52,9 @@ public class StringReader implements IReader {
         throw new ReaderException("Stream is empty");
     }
 
+    /**
+     * Method does nothing in this class
+     */
     @Override
     public void close() {
 
