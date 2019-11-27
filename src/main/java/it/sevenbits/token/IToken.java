@@ -1,4 +1,4 @@
-package it.sevenbits.lexer.token;
+package it.sevenbits.token;
 
 /**
  * Interface for lexical analyzer's tokens

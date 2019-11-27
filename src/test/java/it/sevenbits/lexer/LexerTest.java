@@ -1,8 +1,8 @@
 package it.sevenbits.lexer;
 
 import it.sevenbits.lexer.implementation.Lexer;
-import it.sevenbits.lexer.token.IToken;
-import it.sevenbits.lexer.token.implementation.Token;
+import it.sevenbits.token.IToken;
+import it.sevenbits.token.implementation.Token;
 import it.sevenbits.reader.IReader;
 import it.sevenbits.reader.ReaderException;
 import it.sevenbits.reader.implementation.StringReader;
@@ -32,7 +32,7 @@ public class LexerTest {
     }
     @Test
     public void testReadToken() throws ReaderException, LexerException {
-        IReader stringReader = new StringReader("pu {");
+        IReader stringReader = new StringReader( "pu {");
         ILexer lexer = new Lexer(stringReader);
         assertEquals("p", lexer.readToken().getLexeme());
         assertEquals("u", lexer.readToken().getLexeme());

@@ -1,6 +1,6 @@
 package it.sevenbits.lexer;
 
-import it.sevenbits.lexer.token.IToken;
+import it.sevenbits.token.IToken;
 
 /**
  * Interface for classes that makes tokens

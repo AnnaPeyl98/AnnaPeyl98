@@ -33,7 +33,7 @@ public class LexerFormatterTest {
                 "        }\n" +
                 "    }\n" +
                 "}";
-        stringReader = new StringReader("{{{{}}}}");
+        stringReader = new StringReader("{{{{ }}}}");
         formatter.format(stringReader, stringWriter);
         assertEquals(result, stringWriter.toString());
     }

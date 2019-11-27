@@ -33,7 +33,6 @@ public final class Main {
 
             IFormatter bf = new LexerFormatter();
 
-
             System.out.println("Formatter formatted code. Check file out.txt.");
             bf.format(testTwo, stringWriterForTestTwo);
 

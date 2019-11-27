@@ -6,7 +6,7 @@ import it.sevenbits.lexer.ILexer;
 import it.sevenbits.lexer.LexerException;
 import it.sevenbits.lexer.factory.ILexerFactory;
 import it.sevenbits.lexer.factory.implementation.LexerFactory;
-import it.sevenbits.lexer.token.IToken;
+import it.sevenbits.token.IToken;
 import it.sevenbits.reader.IReader;
 import it.sevenbits.writer.IWriter;
 import it.sevenbits.writer.WriterException;

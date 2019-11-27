@@ -15,13 +15,22 @@ import java.nio.file.Paths;
 public class FileReader implements IReader {
     private int currentSymbol;
     private Reader reader;
-private FileReader(){};
+
+    private FileReader() {
+    }
+
+    ;
+
     /**
      * Constructor that create stream for reading from file
+     *
      * @param path path file
      * @throws ReaderException if was trouble with reading from file
      */
     public FileReader(final String path) throws ReaderException {
+        if (path == null) {
+            throw new ReaderException("Path is null");
+        }
         try {
             reader = Files.newBufferedReader(Paths.get(path), Charset.forName("UTF-8"));
             currentSymbol = reader.read();
@@ -32,6 +41,7 @@ private FileReader(){};
 
     /**
      * Check can read next symbol or not
+     *
      * @return true if can else false
      */
     @Override
@@ -41,6 +51,7 @@ private FileReader(){};
 
     /**
      * read next symbol from stream
+     *
      * @return next symbol
      * @throws ReaderException if was trouble with reading
      */
@@ -60,6 +71,7 @@ private FileReader(){};
 
     /**
      * close stream
+     *
      * @throws ReaderException if was trouble with closes stream
      */
     @Override

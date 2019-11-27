@@ -1,6 +1,6 @@
-package it.sevenbits.lexer.token.implementation;
+package it.sevenbits.token.implementation;
 
-import it.sevenbits.lexer.token.IToken;
+import it.sevenbits.token.IToken;
 
 import java.util.Objects;
 

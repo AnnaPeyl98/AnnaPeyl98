@@ -2,8 +2,8 @@ package it.sevenbits.lexer.implementation;
 
 import it.sevenbits.lexer.ILexer;
 import it.sevenbits.lexer.LexerException;
-import it.sevenbits.lexer.token.IToken;
-import it.sevenbits.lexer.token.implementation.Token;
+import it.sevenbits.token.IToken;
+import it.sevenbits.token.implementation.Token;
 import it.sevenbits.reader.IReader;
 import it.sevenbits.reader.ReaderException;
 
