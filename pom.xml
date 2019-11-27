@@ -11,15 +11,22 @@
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.0</version>
             <configuration>
-                <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <mainClass>it.sevenbits.Main</mainClass>
-                    </manifest>
-                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <archive><manifest>
+                    <mainClass>it.sevenbits.Main</mainClass>
+                </manifest></archive>
             </configuration>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>single</goal></goals>
+                </execution>
+            </executions>
         </plugin>
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -50,7 +57,7 @@
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>RELEASE</version>
+        <version>4.12</version>
         <scope>test</scope>
     </dependency>
         <dependency>
@@ -60,9 +67,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
-    </properties>
 
 </project>
