@@ -9,11 +9,15 @@ import it.sevenbits.writer.IWriter;
 import it.sevenbits.writer.implementation.FileWriter;
 import it.sevenbits.reader.ReaderException;
 import it.sevenbits.writer.WriterException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Main class for running formatter
  */
 public final class Main {
+    final static Logger logger = LoggerFactory.getLogger(Main.class);
+
     /**
      * That could not call the constructor without parameters
      */
@@ -33,7 +37,7 @@ public final class Main {
 
             IFormatter bf = new LexerFormatter();
 
-            System.out.println("Formatter formatted code.");
+            logger.info("Formatter formatted code.");
             bf.format(testTwo, stringWriterForTestTwo);
 
 
