@@ -44,7 +44,6 @@ public class FileReaderTest {
 
     @Test(expected = ReaderException.class)
     public void testNullString() throws ReaderException {
-        doThrow(ReaderException.class).when(fileReader);
         fileReader = new FileReader(null);
     }
 }
