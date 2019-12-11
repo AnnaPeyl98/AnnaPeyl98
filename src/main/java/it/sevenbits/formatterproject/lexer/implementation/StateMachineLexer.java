@@ -2,15 +2,15 @@ package it.sevenbits.formatterproject.lexer.implementation;
 
 import it.sevenbits.formatterproject.lexer.ILexer;
 import it.sevenbits.formatterproject.lexer.LexerException;
-import it.sevenbits.formatterproject.lexer.statemachine.LexerContext;
-import it.sevenbits.formatterproject.lexer.statemachine.command.LexerCommandMap;
-import it.sevenbits.formatterproject.lexer.statemachine.command.LexerCommandTransition;
-import it.sevenbits.formatterproject.lexer.statemachine.state.LexerState;
-import it.sevenbits.formatterproject.lexer.statemachine.state.LexerStateTransition;
-import it.sevenbits.formatterproject.lexer.statemachine.state.implementation.LexerStateMap;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.LexerContext;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.command.LexerCommandMap;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.command.LexerCommandTransition;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.state.LexerState;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.state.LexerStateTransition;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.state.implementation.LexerStateMap;
 import it.sevenbits.formatterproject.reader.IReader;
 import it.sevenbits.formatterproject.reader.ReaderException;
-import it.sevenbits.formatterproject.lexer.statemachine.command.ILexerCommand;
+import it.sevenbits.formatterproject.lexer.implementation.statemachine.command.ILexerCommand;
 import it.sevenbits.formatterproject.token.IToken;
 import it.sevenbits.formatterproject.token.implementation.Token;
 
