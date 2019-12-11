@@ -61,7 +61,7 @@ public class StateMashineFormatterTest {
                     "        System.out.println(\"Hello, World from branch2\");\n" +
                     "    }\n" +
                     "}";
-            stringReader = new StringReader("public class HelloWorld{//hiiiiii\npublic static void main(String[] args){ /*comment two*/"
+            stringReader = new StringReader("public class HelloWorld      {//hiiiiii\npublic static void main(String[] args){ /*comment two*/"
                     + "String s=\"sss\"; System.out.println(\"Hello, World from branch2\");" + "}}");
             formatter.format(stringReader, stringWriter);
             assertEquals(result, stringWriter.toString());
