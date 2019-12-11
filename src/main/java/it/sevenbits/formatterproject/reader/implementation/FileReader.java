@@ -6,6 +6,7 @@ import it.sevenbits.formatterproject.reader.ReaderException;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -32,7 +33,7 @@ public class FileReader implements IReader {
             throw new ReaderException("Path is null");
         }
         try {
-            reader = Files.newBufferedReader(Paths.get(path), Charset.forName("UTF-8"));
+            reader = Files.newBufferedReader(Paths.get(path), StandardCharsets.UTF_8);
             currentSymbol = reader.read();
         } catch (IOException ex) {
             throw new ReaderException("Cannot create stream");

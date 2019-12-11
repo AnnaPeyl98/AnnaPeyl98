@@ -6,6 +6,7 @@ import it.sevenbits.formatterproject.writer.WriterException;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 /**
@@ -26,7 +27,7 @@ public class FileWriter implements IWriter {
      */
     public FileWriter(final String path) throws WriterException {
         try {
-            writer = Files.newBufferedWriter(Paths.get(path), Charset.forName("UTF-8"));
+            writer = Files.newBufferedWriter(Paths.get(path), StandardCharsets.UTF_8);
         } catch (IOException ex) {
             throw new WriterException("Cannot create file");
         }
