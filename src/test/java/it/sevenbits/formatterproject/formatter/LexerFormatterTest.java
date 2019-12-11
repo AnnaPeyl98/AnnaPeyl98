@@ -54,7 +54,7 @@ public class LexerFormatterTest {
     }
 
     @Test
-    public void testHelloWord() throws ReaderException, FormatterException {
+    public void testWithValidCodeHelloWord() throws ReaderException, FormatterException {
         String result = "public class HelloWorld{\n" +
                 "    public static void main(String[] args){\n" +
                 "        System.out.println(\"Hello, World from branch2\");\n" +

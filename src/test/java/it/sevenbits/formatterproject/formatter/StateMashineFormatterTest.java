@@ -52,7 +52,7 @@ public class StateMashineFormatterTest {
         }
 
         @Test
-        public void testHelloWord() throws ReaderException, FormatterException {
+        public void testWithValidCodeHelloWord() throws ReaderException, FormatterException {
             String result = "public class HelloWorld {\n" +
                     "    //hiiiiii\n"+
                     "    public static void main(String[] args) {\n" +
