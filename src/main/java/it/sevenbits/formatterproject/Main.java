@@ -42,11 +42,11 @@ public final class Main {
 
 
         } catch (ReaderException e) {
-            e.printStackTrace();
+            logger.error(e.toString());
         } catch (WriterException e) {
-            e.printStackTrace();
+            logger.error(e.toString());
         } catch (FormatterException e) {
-            e.printStackTrace();
+            logger.error(e.toString());
         }
     }
 }
