@@ -3,6 +3,7 @@ package it.sevenbits.formatterproject;
 import it.sevenbits.formatterproject.formatter.FormatterException;
 import it.sevenbits.formatterproject.formatter.IFormatter;
 import it.sevenbits.formatterproject.formatter.implementation.LexerFormatter;
+import it.sevenbits.formatterproject.formatter.implementation.StateMachineFormatter;
 import it.sevenbits.formatterproject.reader.IReader;
 import it.sevenbits.formatterproject.reader.ReaderException;
 import it.sevenbits.formatterproject.reader.implementation.FileReader;
@@ -35,7 +36,7 @@ public final class Main {
 
             IWriter stringWriterForTestTwo = new FileWriter(args[1]);
 
-            IFormatter bf = new LexerFormatter();
+            IFormatter bf = new StateMachineFormatter();
 
             logger.info("Formatter formatted code.");
             bf.format(testTwo, stringWriterForTestTwo);
