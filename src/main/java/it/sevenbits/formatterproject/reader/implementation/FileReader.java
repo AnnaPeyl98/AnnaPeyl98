@@ -36,7 +36,7 @@ public class FileReader implements IReader {
             reader = Files.newBufferedReader(Paths.get(path), StandardCharsets.UTF_8);
             currentSymbol = reader.read();
         } catch (IOException ex) {
-            throw new ReaderException("Cannot create stream");
+            throw new ReaderException("Cannot create stream", ex);
         }
     }
 

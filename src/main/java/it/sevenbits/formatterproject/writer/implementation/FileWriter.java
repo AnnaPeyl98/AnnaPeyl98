@@ -29,7 +29,7 @@ public class FileWriter implements IWriter {
         try {
             writer = Files.newBufferedWriter(Paths.get(path), StandardCharsets.UTF_8);
         } catch (IOException ex) {
-            throw new WriterException("Cannot create file");
+            throw new WriterException("Cannot create file", ex);
         }
 
     }
@@ -44,7 +44,7 @@ public class FileWriter implements IWriter {
         try {
             writer.write(c);
         } catch (IOException ex) {
-            throw new WriterException("Cannot write into stream");
+            throw new WriterException("Cannot write into stream", ex);
         }
     }
 
@@ -57,7 +57,7 @@ public class FileWriter implements IWriter {
         try {
             writer.close();
         } catch (IOException ex) {
-            throw new WriterException("Cannot close stream");
+            throw new WriterException("Cannot close stream", ex);
         }
     }
 }

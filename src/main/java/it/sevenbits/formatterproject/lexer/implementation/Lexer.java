@@ -107,7 +107,7 @@ public class Lexer implements ILexer {
             }
 
         } catch (ReaderException ex) {
-            throw new LexerException("Cannot read token");
+            throw new LexerException("Cannot read token", ex);
         }
         return null;
     }

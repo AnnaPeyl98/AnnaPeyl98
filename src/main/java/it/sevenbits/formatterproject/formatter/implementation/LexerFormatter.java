@@ -49,6 +49,7 @@ public class LexerFormatter implements IFormatter {
 
     /**
      * Formats java code according to the rules
+     *
      * @param reader - instance that contains code for formatting
      * @param writer - instance where we would write formatting code
      * @throws FormatterException if was trouble with reading or writing
@@ -106,9 +107,9 @@ public class LexerFormatter implements IFormatter {
             }
             writer.close();
         } catch (LexerException ex) {
-            throw new FormatterException("Some problems with reader");
+            throw new FormatterException("Some problems with reader", ex);
         } catch (WriterException ex) {
-            throw new FormatterException("Some problems with writer");
+            throw new FormatterException("Some problems with writer", ex);
         }
 
     }
