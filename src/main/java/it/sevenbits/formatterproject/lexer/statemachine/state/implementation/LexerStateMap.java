@@ -1,6 +1,6 @@
 package it.sevenbits.formatterproject.lexer.statemachine.state.implementation;
 
-import it.sevenbits.formatterproject.Pair;
+import it.sevenbits.formatterproject.containers.Pair;
 import it.sevenbits.formatterproject.lexer.statemachine.state.ILexerStateMap;
 import it.sevenbits.formatterproject.lexer.statemachine.state.LexerState;
 

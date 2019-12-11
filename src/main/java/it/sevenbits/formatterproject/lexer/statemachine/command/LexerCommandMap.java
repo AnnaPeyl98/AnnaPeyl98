@@ -2,7 +2,7 @@ package it.sevenbits.formatterproject.lexer.statemachine.command;
 
 import it.sevenbits.formatterproject.lexer.statemachine.LexerContext;
 import it.sevenbits.formatterproject.lexer.statemachine.state.LexerState;
-import it.sevenbits.formatterproject.Pair;
+import it.sevenbits.formatterproject.containers.Pair;
 import it.sevenbits.formatterproject.lexer.statemachine.command.implementation.AddToBufferCommand;
 import it.sevenbits.formatterproject.lexer.statemachine.command.implementation.IgnoreCommand;
 import it.sevenbits.formatterproject.lexer.statemachine.command.implementation.SetNextCharCommand;

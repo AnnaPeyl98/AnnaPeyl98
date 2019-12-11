@@ -1,6 +1,6 @@
 package it.sevenbits.formatterproject.formatter.statemachine.command;
 
-import it.sevenbits.formatterproject.Pair;
+import it.sevenbits.formatterproject.containers.Pair;
 import it.sevenbits.formatterproject.formatter.statemachine.FormatterContext;
 import it.sevenbits.formatterproject.formatter.statemachine.command.implementation.AddNewLineCommand;
 import it.sevenbits.formatterproject.formatter.statemachine.command.implementation.AddSpaceCommand;

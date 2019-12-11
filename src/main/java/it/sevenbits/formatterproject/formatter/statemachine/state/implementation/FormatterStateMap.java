@@ -2,7 +2,7 @@ package it.sevenbits.formatterproject.formatter.statemachine.state.implementatio
 
 import it.sevenbits.formatterproject.formatter.statemachine.state.FormatterState;
 import it.sevenbits.formatterproject.formatter.statemachine.state.IFormatterStateMap;
-import it.sevenbits.formatterproject.Pair;
+import it.sevenbits.formatterproject.containers.Pair;
 
 import java.util.HashMap;
 import java.util.Map;

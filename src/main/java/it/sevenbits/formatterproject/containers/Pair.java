@@ -1,4 +1,4 @@
-package it.sevenbits.formatterproject;
+package it.sevenbits.formatterproject.containers;
 
 import java.util.Objects;
 
