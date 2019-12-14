@@ -2,7 +2,6 @@ package it.sevenbits.formatterproject;
 
 import it.sevenbits.formatterproject.formatter.FormatterException;
 import it.sevenbits.formatterproject.formatter.IFormatter;
-import it.sevenbits.formatterproject.formatter.implementation.LexerFormatter;
 import it.sevenbits.formatterproject.formatter.implementation.StateMachineFormatter;
 import it.sevenbits.formatterproject.reader.IReader;
 import it.sevenbits.formatterproject.reader.ReaderException;
@@ -17,7 +16,7 @@ import org.slf4j.LoggerFactory;
  * Main class for running formatter
  */
 public final class Main {
-    final static Logger logger = LoggerFactory.getLogger(Main.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     /**
      * That could not call the constructor without parameters
@@ -38,17 +37,17 @@ public final class Main {
 
             IFormatter bf = new StateMachineFormatter();
 
-            logger.info("Formatter formatted code.");
+            LOGGER.info("Formatter formatted code.");
             bf.format(reader, writer);
             writer.close();
             reader.close();
 
         } catch (ReaderException e) {
-            logger.error(e.toString());
+            LOGGER.error(e.toString());
         } catch (WriterException e) {
-            logger.error(e.toString());
+            LOGGER.error(e.toString());
         } catch (FormatterException e) {
-            logger.error(e.toString());
+            LOGGER.error(e.toString());
         }
     }
 }
