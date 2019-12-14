@@ -61,7 +61,6 @@ public class StateMachineFormatter implements IFormatter {
                 command.execute();
                 state = stateTransition.getNextState(state, token.getName());
             }
-            writer.close();
         } catch (LexerException ex) {
             throw new FormatterException("Some problems with reader", ex);
         } catch (WriterException ex) {

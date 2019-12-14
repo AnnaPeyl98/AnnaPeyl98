@@ -32,15 +32,16 @@ public final class Main {
      */
     public static void main(final String[] args) {
         try {
-            IReader testTwo = new FileReader(args[0]);
+            IReader reader = new FileReader(args[0]);
 
-            IWriter stringWriterForTestTwo = new FileWriter(args[1]);
+            IWriter writer = new FileWriter(args[1]);
 
             IFormatter bf = new StateMachineFormatter();
 
             logger.info("Formatter formatted code.");
-            bf.format(testTwo, stringWriterForTestTwo);
-
+            bf.format(reader, writer);
+            writer.close();
+            reader.close();
 
         } catch (ReaderException e) {
             logger.error(e.toString());
