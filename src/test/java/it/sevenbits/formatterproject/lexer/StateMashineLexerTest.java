@@ -33,12 +33,13 @@ public class StateMashineLexerTest {
         }
         @Test
         public void testReadToken() throws ReaderException, LexerException {
-            IReader stringReader = new StringReader( "pu { /*ADSDAS*/ \"Elena\"; } ");
+            IReader stringReader = new StringReader("pu { /*ADSDAS*/ \"   Elena\" ; } ");
             ILexer lexer = new StateMachineLexer(stringReader);
+
             assertEquals("pu", lexer.readToken().getLexeme());
             assertEquals("{", lexer.readToken().getLexeme());
             assertEquals("/*ADSDAS*/", lexer.readToken().getLexeme());
-            assertEquals("\"Elena\"", lexer.readToken().getLexeme());
+            assertEquals("\"   Elena\"", lexer.readToken().getLexeme());
             assertEquals(";", lexer.readToken().getLexeme());
             assertEquals("}", lexer.readToken().getLexeme());
         }

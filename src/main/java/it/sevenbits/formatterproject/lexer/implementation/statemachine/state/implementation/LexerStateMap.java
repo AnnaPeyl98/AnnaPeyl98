@@ -18,11 +18,11 @@ public class LexerStateMap implements ILexerStateMap {
     private static final char SPACE = ' ';
     private static final char SLASH = '/';
     private static final char STAR = '*';
-    private static final char STRING = '\"';
+    private static final char STRING = '"';
     private static final char NEXT_LINE = '\n';
 
     private static LexerState waitState = new LexerState("WAIT");
-    private static LexerState defaultState = new LexerState("MESSAGE");
+    private static LexerState defaultState = new LexerState("ELEMENT");
     private static LexerState finishState = new LexerState("FINISH");
     private static LexerState leftBraceState = new LexerState("LEFT_BRACE");
     private static LexerState rightBraceState = new LexerState("RIGHT_BRACE");
@@ -64,6 +64,7 @@ public class LexerStateMap implements ILexerStateMap {
         repository.put(new Pair<>(defaultState, SLASH), finishState);
         repository.put(new Pair<>(defaultState, NEXT_LINE), finishState);
         repository.put(new Pair<>(defaultState, null), defaultState);
+        repository.put(new Pair<>(defaultState, STRING), finishState);
 
         repository.put(new Pair<>(commentState, SPACE), commentState);
         repository.put(new Pair<>(commentState, NEXT_LINE), commentState);

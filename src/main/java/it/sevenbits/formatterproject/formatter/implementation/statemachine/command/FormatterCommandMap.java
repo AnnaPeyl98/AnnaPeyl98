@@ -19,7 +19,7 @@ public class FormatterCommandMap implements IFormatterCommandMap {
 
     private Map<Pair<FormatterState, String>, IFormatterCommand> repository;
 
-    private static final String MESSAGE = "MESSAGE";
+    private static final String ELEMENT = "ELEMENT";
     private static final String SEMICOLON = "SEMICOLON";
     private static final String LEFT_BRACE = "LEFT_BRACE";
     private static final String RIGHT_BRACE = "RIGHT_BRACE";
@@ -42,14 +42,15 @@ public class FormatterCommandMap implements IFormatterCommandMap {
         FormatterState leftBraceState = new FormatterState("LEFT_BRACE_STATE");
         FormatterState rightBraceState = new FormatterState("RIGHT_BRACE_STATE");
         FormatterState commentState = new FormatterState("COMMENT_STATE");
+        FormatterState stringState = new FormatterState("STRING_STATE");
         repository = new HashMap<>();
 
         repository.put(new Pair<>(waitState, null), new AddTokenCommand(context));
         repository.put(new Pair<>(waitState, LEFT_BRACE), new AddTokenCommand(context, new PlusIndentCommand(context)));
         repository.put(new Pair<>(waitState, RIGHT_BRACE), new AddTokenCommand(context));
 
-        repository.put(new Pair<>(writeState, MESSAGE), new AddTokenCommand(context, new AddSpaceCommand(context)));
-        repository.put(new Pair<>(writeState, STRING), new AddTokenCommand(context, new AddSpaceCommand(context)));
+        repository.put(new Pair<>(writeState, ELEMENT), new AddTokenCommand(context, new AddSpaceCommand(context)));
+        repository.put(new Pair<>(writeState, STRING), new AddTokenCommand(context));
         repository.put(new Pair<>(writeState, SEMICOLON), new AddTokenCommand(context));
         repository.put(new Pair<>(writeState, LEFT_BRACE), new AddTokenCommand(context,
                 new AddSpaceCommand(context, new PlusIndentCommand(context))));
@@ -57,7 +58,7 @@ public class FormatterCommandMap implements IFormatterCommandMap {
                 new AddNewLineCommand(context, new MinusIndentCommand(context))));
         repository.put(new Pair<>(writeState, null), new AddTokenCommand(context, new AddNewLineCommand(context)));
 
-        repository.put(new Pair<>(semicolonState, MESSAGE), new AddTokenCommand(context, new AddNewLineCommand(context)));
+        repository.put(new Pair<>(semicolonState, ELEMENT), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(semicolonState, STRING), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(semicolonState, SEMICOLON), new AddTokenCommand(context));
         repository.put(new Pair<>(semicolonState, LEFT_BRACE), new AddTokenCommand(context,
@@ -66,7 +67,7 @@ public class FormatterCommandMap implements IFormatterCommandMap {
                 new AddNewLineCommand(context, new MinusIndentCommand(context))));
         repository.put(new Pair<>(semicolonState, null), new AddTokenCommand(context, new AddNewLineCommand(context)));
 
-        repository.put(new Pair<>(leftBraceState, MESSAGE), new AddTokenCommand(context, new AddNewLineCommand(context)));
+        repository.put(new Pair<>(leftBraceState, ELEMENT), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(leftBraceState, STRING), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(leftBraceState, SEMICOLON), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(leftBraceState, LEFT_BRACE), new AddTokenCommand(context,
@@ -75,7 +76,7 @@ public class FormatterCommandMap implements IFormatterCommandMap {
                 new AddNewLineCommand(context, new MinusIndentCommand(context))));
         repository.put(new Pair<>(leftBraceState, null), new AddTokenCommand(context, new AddNewLineCommand(context)));
 
-        repository.put(new Pair<>(rightBraceState, MESSAGE), new AddTokenCommand(context, new AddNewLineCommand(context)));
+        repository.put(new Pair<>(rightBraceState, ELEMENT), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(rightBraceState, STRING), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(rightBraceState, SEMICOLON), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(rightBraceState, LEFT_BRACE), new AddTokenCommand(context,
@@ -84,7 +85,7 @@ public class FormatterCommandMap implements IFormatterCommandMap {
                 new AddNewLineCommand(context, new MinusIndentCommand(context))));
         repository.put(new Pair<>(rightBraceState, null), new AddTokenCommand(context, new AddNewLineCommand(context)));
 
-        repository.put(new Pair<>(commentState, MESSAGE), new AddTokenCommand(context, new AddNewLineCommand(context)));
+        repository.put(new Pair<>(commentState, ELEMENT), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(commentState, STRING), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(commentState, SEMICOLON), new AddTokenCommand(context, new AddNewLineCommand(context)));
         repository.put(new Pair<>(commentState, LEFT_BRACE), new AddTokenCommand(context,
@@ -92,6 +93,15 @@ public class FormatterCommandMap implements IFormatterCommandMap {
         repository.put(new Pair<>(commentState, RIGHT_BRACE), new AddTokenCommand(context,
                 new AddNewLineCommand(context, new MinusIndentCommand(context))));
         repository.put(new Pair<>(commentState, null), new AddTokenCommand(context, new AddNewLineCommand(context)));
+
+        repository.put(new Pair<>(stringState, STRING), new AddTokenCommand(context, new AddSpaceCommand(context)));
+        repository.put(new Pair<>(stringState, ELEMENT), new AddTokenCommand(context));
+        repository.put(new Pair<>(stringState, LEFT_BRACE), new AddTokenCommand(context,
+                new PlusIndentCommand(context, new AddNewLineCommand(context))));
+        repository.put(new Pair<>(stringState, RIGHT_BRACE), new AddTokenCommand(context,
+                new AddNewLineCommand(context, new MinusIndentCommand(context))));
+        repository.put(new Pair<>(stringState, SEMICOLON), new AddTokenCommand(context));
+        repository.put(new Pair<>(stringState, null), new AddTokenCommand(context, new AddNewLineCommand(context)));
     }
 
     /**

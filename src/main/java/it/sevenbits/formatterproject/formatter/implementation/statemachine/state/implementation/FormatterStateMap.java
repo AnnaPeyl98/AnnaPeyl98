@@ -13,7 +13,7 @@ import java.util.Map;
 public class FormatterStateMap implements IFormatterStateMap {
     private Map<Pair<FormatterState, String>, FormatterState> repository;
 
-    private static final String MESSAGE = "MESSAGE";
+    private static final String ELEMENT = "ELEMENT";
     private static final String SEMICOLON = "SEMICOLON";
     private static final String LEFT_BRACE = "LEFT_BRACE";
     private static final String RIGHT_BRACE = "RIGHT_BRACE";
@@ -27,54 +27,61 @@ public class FormatterStateMap implements IFormatterStateMap {
     private static final FormatterState LEFT_BRACE_STATE = new FormatterState("LEFT_BRACE_STATE");
     private static final FormatterState RIGHT_BRACE_STATE = new FormatterState("RIGHT_BRACE_STATE");
     private static final FormatterState COMMENT_STATE = new FormatterState("COMMENT_STATE");
-
+    private static final FormatterState STRING_STATE = new FormatterState("STRING_STATE");
     /**
      * Basic constructor, create map with current state and next state
      */
     public FormatterStateMap() {
         repository = new HashMap<>();
 
-        repository.put(new Pair<>(WAIT_STATE, MESSAGE), WRITE_STATE);
+        repository.put(new Pair<>(WAIT_STATE, ELEMENT), WRITE_STATE);
         repository.put(new Pair<>(WAIT_STATE, STRING), WRITE_STATE);
         repository.put(new Pair<>(WAIT_STATE, SEMICOLON), SEMICOLON_STATE);
         repository.put(new Pair<>(WAIT_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
         repository.put(new Pair<>(WAIT_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
         repository.put(new Pair<>(WAIT_STATE, null), COMMENT_STATE);
 
-        repository.put(new Pair<>(WRITE_STATE, MESSAGE), WRITE_STATE);
-        repository.put(new Pair<>(WRITE_STATE, STRING), WRITE_STATE);
+        repository.put(new Pair<>(WRITE_STATE, ELEMENT), WRITE_STATE);
+        repository.put(new Pair<>(WRITE_STATE, STRING), STRING_STATE);
         repository.put(new Pair<>(WRITE_STATE, SEMICOLON), SEMICOLON_STATE);
         repository.put(new Pair<>(WRITE_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
         repository.put(new Pair<>(WRITE_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
         repository.put(new Pair<>(WRITE_STATE, null), COMMENT_STATE);
 
-        repository.put(new Pair<>(SEMICOLON_STATE, MESSAGE), WRITE_STATE);
+        repository.put(new Pair<>(SEMICOLON_STATE, ELEMENT), WRITE_STATE);
         repository.put(new Pair<>(SEMICOLON_STATE, STRING), WRITE_STATE);
         repository.put(new Pair<>(SEMICOLON_STATE, SEMICOLON), WRITE_STATE);
         repository.put(new Pair<>(SEMICOLON_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
         repository.put(new Pair<>(SEMICOLON_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
         repository.put(new Pair<>(SEMICOLON_STATE, null), COMMENT_STATE);
 
-        repository.put(new Pair<>(LEFT_BRACE_STATE, MESSAGE), WRITE_STATE);
+        repository.put(new Pair<>(LEFT_BRACE_STATE, ELEMENT), WRITE_STATE);
         repository.put(new Pair<>(LEFT_BRACE_STATE, STRING), WRITE_STATE);
         repository.put(new Pair<>(LEFT_BRACE_STATE, SEMICOLON), SEMICOLON_STATE);
         repository.put(new Pair<>(LEFT_BRACE_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
         repository.put(new Pair<>(LEFT_BRACE_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
         repository.put(new Pair<>(LEFT_BRACE_STATE, null), COMMENT_STATE);
 
-        repository.put(new Pair<>(RIGHT_BRACE_STATE, MESSAGE), WRITE_STATE);
+        repository.put(new Pair<>(RIGHT_BRACE_STATE, ELEMENT), WRITE_STATE);
         repository.put(new Pair<>(RIGHT_BRACE_STATE, STRING), WRITE_STATE);
         repository.put(new Pair<>(RIGHT_BRACE_STATE, SEMICOLON), SEMICOLON_STATE);
         repository.put(new Pair<>(RIGHT_BRACE_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
         repository.put(new Pair<>(RIGHT_BRACE_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
         repository.put(new Pair<>(RIGHT_BRACE_STATE, null), COMMENT_STATE);
 
-        repository.put(new Pair<>(COMMENT_STATE, MESSAGE), WRITE_STATE);
+        repository.put(new Pair<>(COMMENT_STATE, ELEMENT), WRITE_STATE);
         repository.put(new Pair<>(COMMENT_STATE, STRING), WRITE_STATE);
         repository.put(new Pair<>(COMMENT_STATE, SEMICOLON), SEMICOLON_STATE);
         repository.put(new Pair<>(COMMENT_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
         repository.put(new Pair<>(COMMENT_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
         repository.put(new Pair<>(COMMENT_STATE, null), COMMENT_STATE);
+
+        repository.put(new Pair<>(STRING_STATE, STRING), STRING_STATE);
+        repository.put(new Pair<>(STRING_STATE, ELEMENT), WRITE_STATE);
+        repository.put(new Pair<>(STRING_STATE, LEFT_BRACE), LEFT_BRACE_STATE);
+        repository.put(new Pair<>(STRING_STATE, RIGHT_BRACE), RIGHT_BRACE_STATE);
+        repository.put(new Pair<>(STRING_STATE, SEMICOLON), SEMICOLON_STATE);
+        repository.put(new Pair<>(STRING_STATE, null), COMMENT_STATE);
 
     }
 

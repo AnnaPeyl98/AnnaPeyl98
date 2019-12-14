@@ -26,7 +26,7 @@ public class LexerCommandMap implements ILexerCommandMap {
     private static final char NEXT_LINE = '\n';
 
     private static LexerState waitState = new LexerState("WAIT");
-    private static LexerState defaultState = new LexerState("MESSAGE");
+    private static LexerState defaultState = new LexerState("ELEMENT");
     private static LexerState leftBraceState = new LexerState("LEFT_BRACE");
     private static LexerState rightBraceState = new LexerState("RIGHT_BRACE");
     private static LexerState semicolonState = new LexerState("SEMICOLON");
@@ -73,6 +73,7 @@ public class LexerCommandMap implements ILexerCommandMap {
         repository.put(new Pair<>(defaultState, SLASH), new SetToTokenCommand(context, new SetNextCharCommand(context)));
         repository.put(new Pair<>(defaultState, NEXT_LINE), new SetToTokenCommand(context, new SetNextCharCommand(context)));
         repository.put(new Pair<>(defaultState, null), new AddToBufferCommand(context));
+        repository.put(new Pair<>(defaultState, STRING), new SetToTokenCommand(context, new SetNextCharCommand(context)));
 
         repository.put(new Pair<>(commentState, SPACE), new IgnoreCommand());
         repository.put(new Pair<>(commentState, NEXT_LINE), new IgnoreCommand());
